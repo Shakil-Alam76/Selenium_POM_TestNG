@@ -1,4 +1,5 @@
 import Pages.Login;
+import Pages.SignUp;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -11,7 +12,7 @@ import java.io.IOException;
 public class TestRunner extends Setup {
 
     Login objLogin;
-  @Test
+  @Test (priority=1)
     public void doLogin() throws IOException, ParseException {
         driver.get("http://automationpractice.com");
         objLogin=new Login(driver);
@@ -30,6 +31,13 @@ public class TestRunner extends Setup {
       // String user= objLogin.doLogin("2019200010001@seu.edu.bd", "Shantocse#764576");
       // Assert.assertEquals(user, "Shakil Alam Shanto");
 
+  }
+
+  @Test (priority=2)
+  public void inputEmail(){
+      driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+     SignUp objSignup=new SignUp(driver);
+     objSignup.emailSubmit("shakil.shantocse@gmail.com");
   }
 
 }

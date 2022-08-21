@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c6649aa-039b-465d-84dd-e60615ea83fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/user.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/SignUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Setup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Setup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/user.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/user.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +160,9 @@
       <workItem from="1660667585955" duration="3360000" />
       <workItem from="1660671208088" duration="2341000" />
       <workItem from="1660794901436" duration="4363000" />
-      <workItem from="1660818447234" duration="15378000" />
+      <workItem from="1660818447234" duration="16546000" />
+      <workItem from="1661093734237" duration="5126000" />
+      <workItem from="1661108568435" duration="2317000" />
     </task>
     <servers />
   </component>

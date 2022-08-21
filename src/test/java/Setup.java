@@ -1,7 +1,10 @@
+import Pages.Utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -22,9 +25,21 @@ public class Setup {
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
+
+    @AfterMethod
+    public void screenShot(ITestResult result){
+        if(ITestResult.FAILURE==result.getStatus()){
+            try {
+                Utils util=new Utils(driver);
+                util.takeScreenshot();
+            }catch (Exception exception){
+                System.out.println(exception.toString());
+            }
+        }
+    }
     @AfterTest
     public void logout(){
-      //  driver.close();
+     // driver.close();
     }
 }
 
