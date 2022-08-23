@@ -12,17 +12,16 @@ import java.io.IOException;
 public class TestRunner extends Setup {
 
     Login objLogin;
-  @Test (priority=1)
+  @Test (enabled = false)
     public void doLogin() throws IOException, ParseException {
         driver.get("http://automationpractice.com");
         objLogin=new Login(driver);
 
       JSONParser jsonParser=new JSONParser();
-       Object obj=jsonParser.parse(new FileReader("./src/test/resources/user.json"));
+       Object obj=jsonParser.parse(new FileReader("./src/test/resources/users.json"));
        JSONObject jsonObject=(JSONObject) obj;
        String email=(String) jsonObject.get("email");
        String password=(String) jsonObject.get("password");
-
 
          String user=objLogin.doLogin(email,password);
          Assert.assertEquals(user, "Shakil Alam Shanto");
@@ -32,8 +31,23 @@ public class TestRunner extends Setup {
       // Assert.assertEquals(user, "Shakil Alam Shanto");
 
   }
+  @Test (enabled = true)
+    public void authErrorCheck() throws IOException, ParseException {
+        driver.get("http://automationpractice.com");
+        objLogin = new Login(driver);
 
-  @Test (priority=2)
+        JSONParser jsonParser = new JSONParser();
+        Object obj = jsonParser.parse(new FileReader("./src/test/resources/users.json"));
+        JSONObject jsonObject = (JSONObject) obj;
+        String email = (String) jsonObject.get("email");
+        String password = (String) jsonObject.get("password");
+
+        String authStatus = objLogin.loginAuth(email, password);
+        Assert.assertEquals(authStatus, "Authentication failed.");
+    }
+
+
+  @Test(enabled = false)
   public void inputEmail(){
       driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
      SignUp objSignup=new SignUp(driver);

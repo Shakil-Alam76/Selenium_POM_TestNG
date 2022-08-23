@@ -17,6 +17,8 @@ public class Login {
     WebElement buttonSubmitLogin;
     @FindBy(xpath = "//span[contains(text(),'Shakil Alam Shanto')]")
     WebElement userName;
+    @FindBy(xpath = "//li[contains(text(),'Authentication failed.')]")
+    WebElement authCheck;
 
     public Login(WebDriver driver){
         this.driver=driver;
@@ -28,6 +30,15 @@ public class Login {
         textPassword.sendKeys(password);
         buttonSubmitLogin.click();
        return userName.getText();
+    }
+
+    //Login Authontication Test
+    public String loginAuth(String email, String password){
+        linklogin.click();
+        textEmail.sendKeys(email);
+        textPassword.sendKeys(password);
+        buttonSubmitLogin.click();
+        return authCheck.getText();
     }
 
 }
